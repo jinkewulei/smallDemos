@@ -1,2 +1,2 @@
-LEARN DEMOS
+Learn Demos.
 
