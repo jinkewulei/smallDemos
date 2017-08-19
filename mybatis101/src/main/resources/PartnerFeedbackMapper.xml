@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.will.PartnerFeedbackMapper">
+
+    <sql id="insert_columns">
+        (product_id, page_title, feedback, feedback_time)
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into partner_feedback1 <include refid="insert_columns"/>
+        values (
+            #{productId}, #{pageTitle}, #{feedback}, #{feedbackTime}
+        )
+    </insert>
+
+    <!--<insert id="insert" parameterType="com.will.PartnerFeedback">-->
+        <!--&lt;!&ndash;<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">&ndash;&gt;-->
+            <!--&lt;!&ndash;select last_insert_id()&ndash;&gt;-->
+        <!--&lt;!&ndash;</selectKey>&ndash;&gt;-->
+
+      <!--insert into partner_feedback1(id, product_id, page_title, feedback, feedback_time) values ( null, 666666, 'addsa', 'dadasdasd', '1989-09-09 9:9:9');-->
+
+    <!--</insert>-->
+
+    <select id="findFeedbackById" resultType="com.will.PartnerFeedback" >
+        select * from partner_feedback1 where product_id = #{id}
+    </select>
+
+
+</mapper>
